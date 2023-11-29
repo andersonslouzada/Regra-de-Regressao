@@ -11,7 +11,7 @@ public class App {
    * Metodo main.
    */
   public static void main(String[] args) {
-    Works works = new Wo1rks();
+    Works works = new Works();
     works.createWorks();
   }
 }
