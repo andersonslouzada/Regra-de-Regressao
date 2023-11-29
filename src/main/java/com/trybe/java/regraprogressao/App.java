@@ -22,11 +22,11 @@ public class App {
 
     int work = 0;
     while (work < quantitaty) {
-      System.out.println("Digite o nome da atividade " + (work + 1) + ":");
+      System.out.println("Digite o nome da atividade " + (work + 1) + ": ");
       String name = scanner.nextLine();
       worksName[work] = name;
 
-      System.out.println("Digite o peso da atividade " + worksName[work] + ":");
+      System.out.println("Digite o peso da atividade " + (work + 1) + ": ");
       String weight = scanner.nextLine();
       worksWeigth[work] = Integer.parseInt(weight);
       work += 1;
