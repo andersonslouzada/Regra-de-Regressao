@@ -19,17 +19,21 @@ public class App {
 
     String[] worksName = new String[quantitaty];
     int[] worksWeigth = new int[quantitaty];
+    int[] worksNote = new int[quantitaty];
 
     int work = 0;
     while (work < quantitaty) {
       System.out.println("Digite o nome da atividade " + (work + 1) + ": ");
-      String name = scanner.nextLine();
-      worksName[work] = name;
+      worksName[work] = scanner.nextLine();
 
       System.out.println("Digite o peso da atividade " + (work + 1) + ": ");
-      String weight = scanner.nextLine();
-      worksWeigth[work] = Integer.parseInt(weight);
+      worksWeigth[work] = Integer.parseInt(scanner.nextLine());
+
+      System.out.println("Digite a nota obtida para " + worksName[work] + ": ");
+      worksNote[work] = Integer.parseInt(scanner.nextLine());
       work += 1;
+
+
     }
     scanner.close();
   }
