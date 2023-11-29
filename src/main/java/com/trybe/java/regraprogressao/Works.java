@@ -18,7 +18,7 @@ public class Works {
     int quantitaty = Integer.parseInt(quantitatyWorks);
 
     String[] worksName = new String[quantitaty];
-    int[] worksWeigth = new int[quantitaty];
+    int[] worksWeight = new int[quantitaty];
     int[] worksNote = new int[quantitaty];
 
     int work = 0;
@@ -28,7 +28,7 @@ public class Works {
       worksName[work] = scanner.nextLine();
 
       System.out.println("Digite o peso da atividade " + (work + 1) + ": ");
-      worksWeigth[work] = Integer.parseInt(scanner.nextLine());
+      worksWeight[work] = Integer.parseInt(scanner.nextLine());
 
       System.out.println("Digite a nota obtida para " + worksName[work] + ": ");
       worksNote[work] = Integer.parseInt(scanner.nextLine());
@@ -37,11 +37,15 @@ public class Works {
 
     scanner.close();
 
-    verifyWeight(worksWeigth);
+    verifyWeight(worksWeight);
+
+    calculateNote(worksWeight, worksNote);
   }
 
   /**
    * Verify weight.
+   *
+   * @param weights the weights
    */
   public void verifyWeight(int[] weights) {
     int quantitaty = 0;
@@ -54,6 +58,27 @@ public class Works {
 
     if (sum != 100) {
       System.out.println("A soma dos pesos é diferente de 100!");
+    }
+  }
+
+  /**
+   * Calculate note.
+   */
+  public void calculateNote(int[] weights, int[] notes) {
+    float sum = 0.0f;
+    for (int i = 0; i < weights.length; i++) {
+      sum += weights[i] * notes[i];
+    }
+
+    float result = sum / 100f;
+
+    if (result >= 85) {
+      System.out.println("Parabéns! Você alcançou " + result
+          + "%! E temos o prazer de informar que você obteve aprovação!");
+    } else if (result < 85) {
+      System.out.println(
+          "Lamentamos informar que, com base na sua pontuação alcançada neste período, " + result
+              + "%, você não atingiu a pontuação mínima necessária para sua aprovação.");
     }
   }
 }
